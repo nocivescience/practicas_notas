@@ -5,4 +5,5 @@ indexCrtl.renderIndex=(req,res)=>{
 indexCrtl.renderAbout=(req,res)=>{
     res.render('about')
 }
-module.exports= indexCrtl;
+// module.exports= indexCrtl;
+export default indexCrtl

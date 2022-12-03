@@ -1,9 +1,17 @@
-const express= require('express');
-const path= require('path');
-const morgan= require('morgan');
-const {engine}= require('express-handlebars');
+// const express= require('express');
+import express from 'express';
+// const path= require('path');
+import path from 'path';
+// const morgan= require('morgan');
+import morgan from 'morgan';
+// const {engine}= require('express-handlebars');
+import {engine} from 'express-handlebars';
+import indexRouter from './routes/index.routes.js';
+import notesRouter from './routes/notes.routes.js';
+import usersRouter from './routes/users.routes.js';
 // inicializar
 const app= express();
+const __dirname= path.resolve();
 // settings
 app.set('port', process.env.PORT||4000);
 app.set('views', path.join(__dirname,'views'));
@@ -20,9 +28,10 @@ app.use(express.urlencoded({extended: false}));
 
 // globar variables
 // routes
-app.use(require('./routes/index.routes'));
-app.use(require('./routes/notes.routes'));
-app.use(require('./routes/users.routes'))
+app.use(indexRouter);
+app.use(notesRouter);
+app.use(usersRouter);
 // statics
 app.use(express.static(path.join(__dirname,'public')))
-module.exports=app;
+// module.exports=app;
+export default app;

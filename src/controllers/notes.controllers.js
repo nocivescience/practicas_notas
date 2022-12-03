@@ -1,4 +1,5 @@
-const Note= require('../models/Note')
+// const Note= require('../models/Note') 
+import Note from '../models/Note.js'
 const noteCtrls={};
 noteCtrls.renderNoteForm=(req,res)=>{
     res.render('notes/new-note');
