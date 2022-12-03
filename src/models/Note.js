@@ -8,6 +8,6 @@ const NoteSchema= new Schema({
         type: String,
         required: true
     },
-    timestamps: true
-})
+    
+},{timestamps: true,})
 module.exports= model('Notes', NoteSchema)

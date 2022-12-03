@@ -13,8 +13,7 @@ const UserSchema= new Schema({
         type: String,
         required: true
     },
-    timestamps:true
-})
+},{timestamps:true})
 UserSchema.methods.passwordCrypt=async password=>{
     const salt= await bcrypt.salt(10);
     return await bcrypt.hash(password,salt) //conataseña cifrada 
